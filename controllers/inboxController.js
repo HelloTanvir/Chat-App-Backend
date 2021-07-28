@@ -68,7 +68,6 @@ const addConversation = async (req, res) => {
             });
         }
 
-        // test if this logic working
         const conversationAsParticipant = await Conversation.findOne({
             $and: [{ 'creator.email': participant.email }, { 'participant.email': req.user.email }],
         });
@@ -78,7 +77,6 @@ const addConversation = async (req, res) => {
                 data: conversationAsParticipant,
             });
         }
-        // test end
 
         const newConversation = new Conversation({
             creator: {
