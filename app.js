@@ -55,7 +55,7 @@ app.use('/inbox', inboxRoute);
 app.use(errorHandler);
 
 const PORT = process.env.PORT || 5000;
-app.listen(PORT, () => {
+server.listen(PORT, () => {
     console.log(`app is running on port: ${PORT}`);
 });
 
