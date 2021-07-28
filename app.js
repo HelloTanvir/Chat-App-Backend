@@ -6,6 +6,7 @@ const http = require('http');
 const cors = require('cors');
 const cookiePraser = require('cookie-parser');
 const mongoose = require('mongoose');
+const socket = require('socket.io');
 
 // internal imports
 const authRoute = require('./routes/authRoute');
@@ -19,7 +20,11 @@ dotenv.config();
 
 // socket creation
 // eslint-disable-next-line import/order
-const io = require('socket.io')(server);
+const io = socket(server, {
+    cors: {
+        origin: process.env.FRONTEND_URL,
+    },
+});
 
 global.io = io;
 
